@@ -50,8 +50,11 @@ import java.lang.reflect.Method;
 	private Intent handleIntent(final Intent intent) {
 		final String action = intent.getAction();
 		if (Constants.ACTION_INSTALL_SHORTCUT.equals(action)) {
+			/*
 			handleInstallShortcutIntent(intent);
 			return intent;
+			*/
+			return null;
 		} else if (Constants.ACTION_UNINSTALL_SHORTCUT.equals(action)) {
 			handleUninstallShortcutIntent(intent);
 			return intent;
