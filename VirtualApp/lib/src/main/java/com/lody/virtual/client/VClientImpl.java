@@ -319,9 +319,9 @@ public final class VClientImpl extends IVClient.Stub {
 	private Object fixBoundApp(AppBindData data) {
 		Object thread = VirtualCore.mainThread();
 		Object boundApp = mirror.android.app.ActivityThread.mBoundApplication.get(thread);
-		mirror.android.app.ActivityThread.AppBindData.appInfo.set(boundApp, data.appInfo);
-		mirror.android.app.ActivityThread.AppBindData.processName.set(boundApp, data.processName);
-		mirror.android.app.ActivityThread.AppBindData.instrumentationName.set(boundApp, new ComponentName(data.appInfo.packageName, Instrumentation.class.getName()));
+		mirror.android.app.ActivityThread.AppBindData.appInfo.set(thread, data.appInfo);
+		mirror.android.app.ActivityThread.AppBindData.processName.set(thread, data.processName);
+		mirror.android.app.ActivityThread.AppBindData.instrumentationName.set(thread, new ComponentName(data.appInfo.packageName, Instrumentation.class.getName()));
 		return boundApp;
 	}
 
