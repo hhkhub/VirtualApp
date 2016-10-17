@@ -1,15 +1,14 @@
 package com.lody.virtual.client.hook.patchs.am;
 
-import java.lang.reflect.Method;
+import android.content.Intent;
+import android.os.RemoteException;
 
-import com.lody.virtual.client.env.Constants;
 import com.lody.virtual.client.hook.base.Hook;
 import com.lody.virtual.client.local.VIntentFilterManager;
 import com.lody.virtual.helper.utils.ArrayUtils;
 import com.lody.virtual.service.interfaces.IIntentFilterObserver;
 
-import android.content.Intent;
-import android.os.RemoteException;
+import java.lang.reflect.Method;
 
 public abstract class BaseStartActivity extends Hook {
 
@@ -32,6 +31,7 @@ public abstract class BaseStartActivity extends Hook {
 	}
 
 	public Intent filterIntent(Intent intent) {
+		/*
 		if (Intent.ACTION_INSTALL_PACKAGE.equals(intent.getAction())
 				|| (Intent.ACTION_VIEW.equals(intent.getAction()) && "file".equals(intent.getScheme()))
 				|| "application/vnd.android.package-archive".equals(intent.getType())) {
@@ -41,6 +41,7 @@ public abstract class BaseStartActivity extends Hook {
 				|| (Intent.ACTION_VIEW.equals(intent.getAction()) && "package".equals(intent.getScheme()))) {
 			intent.setAction(Constants.ACTION_UNINSTALL_PACKAGE);
 		}
+		*/
 		IIntentFilterObserver intentFilter = VIntentFilterManager.getInterface();
 		if (intentFilter != null) {
 			try {
